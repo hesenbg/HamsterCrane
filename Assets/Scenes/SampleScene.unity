@@ -954,6 +954,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 721220935970981555, guid: 5702c4692c3562a46b7b531a029f851d, type: 3}
+      propertyPath: LadderSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 721220935970981555, guid: 5702c4692c3562a46b7b531a029f851d, type: 3}
+      propertyPath: HorizontalSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 721220935970981555, guid: 5702c4692c3562a46b7b531a029f851d, type: 3}
+      propertyPath: Controller.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 5357999387992682677, guid: 5702c4692c3562a46b7b531a029f851d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -4372,7 +4384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 721220935970981555, guid: bbfa90cd0544f464288b15c5af198d5b, type: 3}
       propertyPath: LadderSpeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 721220935970981555, guid: bbfa90cd0544f464288b15c5af198d5b, type: 3}
       propertyPath: HorizontalSpeed

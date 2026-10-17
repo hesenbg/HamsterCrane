@@ -24,23 +24,16 @@ public class player : MonoBehaviour
     [Header("Variables")] 
     [SerializeField] Vector2 Dir;
 
-    [SerializeField] float LadderSpeed;
+    [SerializeField] float LadderSpeed = 3;
 
-    [SerializeField] float HorizontalSpeed;
+    [SerializeField] float HorizontalSpeed = 5;
 
     [SerializeField] LayerMask LadderLayer;
 
     [SerializeField] LayerMask GroundLayer;
-
-<<<<<<< Updated upstream
     [SerializeField] LayerMask Controller;
 
-    [SerializeField] float ControllerAccessDistance;
-
-    float baseGravity;
-=======
-    float baseGravity = 10;
->>>>>>> Stashed changes
+    float baseGravity = 1;
 
     public bool OnGround = false;
 
@@ -165,7 +158,7 @@ public class player : MonoBehaviour
 
         if (Input.GetKeyDown(Interact))
         {
-            Collider2D[] all = Physics2D.OverlapCircleAll(transform.position, ControllerAccessDistance, Controller);
+            Collider2D[] all = Physics2D.OverlapCircleAll(transform.position, 1, Controller);
 
 
             mindistance = float.MaxValue;
