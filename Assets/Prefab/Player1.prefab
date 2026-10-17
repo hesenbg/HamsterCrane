@@ -112,6 +112,7 @@ MonoBehaviour:
   Down: 115
   Left: 97
   Right: 100
+  Interact: 101
   rb: {fileID: 4431128865581996581}
   Dir: {x: 0, y: 0}
   LadderSpeed: 1

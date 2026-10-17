@@ -1,9 +1,6 @@
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum movementState { idle, ladder, crane };
-
 
 public class player : MonoBehaviour
 {
@@ -16,10 +13,13 @@ public class player : MonoBehaviour
 
     [SerializeField] KeyCode Right;
 
+    [SerializeField] KeyCode Interact;
+
 
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
 
+    BaseController Closest = null;
 
     [Header("Variables")] 
     [SerializeField] Vector2 Dir;
@@ -31,6 +31,10 @@ public class player : MonoBehaviour
     [SerializeField] LayerMask LadderLayer;
 
     [SerializeField] LayerMask GroundLayer;
+
+    [SerializeField] LayerMask Controller;
+
+    [SerializeField] float ControllerAccessDistance;
 
     float baseGravity;
 
@@ -134,6 +138,8 @@ public class player : MonoBehaviour
 
     }
 
+    float mindistance =  float.MaxValue;
+
 
     void Update()
     {
@@ -154,9 +160,45 @@ public class player : MonoBehaviour
                 break;
         }
 
-  
 
+        if (Input.GetKeyDown(Interact))
+        {
+            Collider2D[] all = Physics2D.OverlapCircleAll(transform.position, ControllerAccessDistance, Controller);
+
+
+            mindistance = float.MaxValue;
+
+            foreach(Collider2D col in all)
+            {
+
+                Debug.Log(col);
+
+                float distance =Vector2.Distance(col.transform.position, transform.position);
+
+                if (distance < mindistance && col.gameObject.TryGetComponent<BaseController>(out BaseController cont))
+                {
+                    mindistance = distance;
+
+                    Closest = cont;
+                }
+            }
+
+            if(Closest!= null)
+            {
+                if (Closest.IsInteractable)
+                {
+                    if(state != movementState.crane)
+                    {
+                        state = movementState.crane;
+                    }
+                    else
+                    {
+                        state = movementState.idle;
+                    }
+                }
+            }
+
+        }
         rb.linearVelocity = Dir;
-
     }
 }
