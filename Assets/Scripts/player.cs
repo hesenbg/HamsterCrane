@@ -32,11 +32,15 @@ public class player : MonoBehaviour
 
     [SerializeField] LayerMask GroundLayer;
 
+<<<<<<< Updated upstream
     [SerializeField] LayerMask Controller;
 
     [SerializeField] float ControllerAccessDistance;
 
     float baseGravity;
+=======
+    float baseGravity = 10;
+>>>>>>> Stashed changes
 
     public bool OnGround = false;
 
@@ -52,8 +56,6 @@ public class player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        baseGravity = rb.gravityScale;
     }
 
 
