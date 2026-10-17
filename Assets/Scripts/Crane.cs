@@ -6,37 +6,15 @@ public class Crane : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     private GameObject grabbedBox = null;
+    private Vector2 velocityVector = Vector2.zero;
     private void Start()
     {
         
     }
     private void Update()
     {
-        rb.linearVelocity = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            MoveUp();
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            MoveDown();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            MoveLeft();
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            MoveRight();
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && grabbedBox is null)
-        {
-            CloseArm();
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && grabbedBox is not null)
-        {
-            OpenArm();
-        }
+        rb.linearVelocity = velocityVector;
+        velocityVector = Vector2.zero;
     }
     private void FixedUpdate()
     {
@@ -45,23 +23,31 @@ public class Crane : MonoBehaviour
             grabbedBox.transform.position = (Vector2)transform.position + new Vector2(0, -0.25f);;
         }
     }
-    private void MoveUp()
+    public void MoveUp()
     {
-        rb.linearVelocity += Vector2.up * 2;
+        velocityVector += Vector2.up * 2;
     }
-    private void MoveDown()
+    public void MoveDown()
     {
-        rb.linearVelocity += Vector2.down * 2;
+        velocityVector += Vector2.down * 2;
     }
-    private void MoveLeft()
+    public void MoveLeft()
     {
-        rb.linearVelocity += Vector2.left * 2;
+        velocityVector += Vector2.left * 2;
     }
-    private void MoveRight()
+    public void MoveRight()
     {
-        rb.linearVelocity += Vector2.right * 2;
+        velocityVector += Vector2.right * 2;
     }
-    private void CloseArm()
+    public void ToggleArm()
+    {
+        if(grabbedBox is null)
+        {
+            CloseArm();
+        }
+        else OpenArm();
+    }
+    public void CloseArm()
     {
         Vector2 pivotpoint = (Vector2)transform.position + new Vector2(0, -0.25f);
         var colliders = Physics2D.OverlapCircleAll(pivotpoint, 0.25f, 256);
@@ -81,8 +67,10 @@ public class Crane : MonoBehaviour
             grabbedBox = closestCollider.gameObject;
         }
     }
-    private void OpenArm()
+    public void OpenArm()
     {
+        if(grabbedBox is null) return;
+
         grabbedBox.GetComponent<Box>().Drop();
         grabbedBox = null;
     }

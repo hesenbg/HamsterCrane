@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Off : BaseController
+public class Close : BaseController
 {
+    
     public override void OnDown()
     {
 
     }
 
-    public override bool OnInteract()
+    public override void OnInteract()
     {
-
-        return IsInteractable;
+        crane.OpenArm();
     }
 
     public override void OnLeft()

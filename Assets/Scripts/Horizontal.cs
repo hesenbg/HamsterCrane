@@ -4,13 +4,14 @@ public class Horizontal : BaseController
 {
     public override void OnDown()
     {
+        crane.MoveDown();
 
     }
 
-    public override bool OnInteract()
+    public override void OnInteract()
     {
 
-        return IsInteractable;
+
     }
 
     public override void OnLeft()
@@ -25,6 +26,7 @@ public class Horizontal : BaseController
 
     public override void OnUp()
     {
+        crane.MoveUp();
 
     }
 }

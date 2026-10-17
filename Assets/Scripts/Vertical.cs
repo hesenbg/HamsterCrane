@@ -1,30 +1,30 @@
 using UnityEngine;
 
-public class On : BaseController
+public class Vertical : BaseController
 {
     public override void OnDown()
     {
-
+        
     }
 
-    public override bool OnInteract()
+    public override void OnInteract()
     {
 
-        return IsInteractable;
     }
 
     public override void OnLeft()
     {
-
+        crane.MoveLeft();
     }
 
     public override void OnRight()
     {
-
+        crane.MoveRight();
+        
     }
 
     public override void OnUp()
     {
-
+        
     }
 }

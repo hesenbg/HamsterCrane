@@ -112,7 +112,7 @@ MonoBehaviour:
   Down: 274
   Left: 276
   Right: 275
-  Interact: 101
+  Interact: 303
   rb: {fileID: 4431128865581996581}
   Dir: {x: 0, y: 0}
   LadderSpeed: 1.5
@@ -123,6 +123,9 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  Controller:
+    serializedVersion: 2
+    m_Bits: 0
   OnGround: 0
   state: 0
   CanClimbLadder: 0
