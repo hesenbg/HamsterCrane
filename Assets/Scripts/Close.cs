@@ -1,30 +1,29 @@
 using UnityEngine;
 
-public class Vectorial : BaseController
+public class Open : BaseController
 {
     public override void OnDown()
     {
-        
+
     }
 
-    public override bool OnInteract()
+    public override void OnInteract()
     {
-
-        return IsInteractable;
+        crane.CloseArm();
     }
 
     public override void OnLeft()
     {
-        
+
     }
 
     public override void OnRight()
     {
-        
+
     }
 
     public override void OnUp()
     {
-        
+
     }
 }

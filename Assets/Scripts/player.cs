@@ -130,7 +130,22 @@ public class player : MonoBehaviour
 
     private void Crane()
     {
-
+        if (Input.GetKey(Up))
+        {
+            Closest.OnUp();
+        }
+        if (Input.GetKey(Down))
+        {
+            Closest.OnDown();
+        }
+        if (Input.GetKey(Left))
+        {
+            Closest.OnLeft();
+        }
+        if (Input.GetKey(Right))
+        {
+            Closest.OnRight();
+        }
     }
 
     float mindistance =  float.MaxValue;
@@ -190,6 +205,10 @@ public class player : MonoBehaviour
                     {
                         state = movementState.idle;
                     }
+                }
+                else
+                {
+                    Closest.OnInteract();
                 }
             }
 

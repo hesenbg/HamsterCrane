@@ -15,6 +15,6 @@ public abstract class BaseController : MonoBehaviour
 
     public abstract void OnDown();
 
-    public abstract bool OnInteract();
+    public abstract void OnInteract();
 
 }
