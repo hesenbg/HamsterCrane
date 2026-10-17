@@ -21,7 +21,7 @@ public class player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
 
 
-    [Header("Variables")]
+    [Header("Variables")] 
     [SerializeField] Vector2 Dir;
 
     [SerializeField] float LadderSpeed;
@@ -31,6 +31,8 @@ public class player : MonoBehaviour
     [SerializeField] LayerMask LadderLayer;
 
     [SerializeField] LayerMask GroundLayer;
+
+    float baseGravity;
 
     public bool OnGround = false;
 
@@ -46,6 +48,8 @@ public class player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        baseGravity = rb.gravityScale;
     }
 
 
@@ -134,6 +138,8 @@ public class player : MonoBehaviour
     void Update()
     {
         Dir = Vector2.zero;
+
+        rb.gravityScale = CanClimbLadder ? 0 : baseGravity;
 
         switch (state)
         {
