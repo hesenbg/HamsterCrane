@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,9 +8,12 @@ public class Crane : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private GameObject grabbedBox = null;
     private Vector2 velocityVector = Vector2.zero;
+    [SerializeField] private Sprite[] sprites;
+    private SpriteRenderer sprite;
+
     private void Start()
     {
-        
+       sprite = GetComponentInChildren<SpriteRenderer>();
     }
     private void Update()
     {
@@ -65,12 +69,14 @@ public class Crane : MonoBehaviour
         {
             closestCollider.gameObject.GetComponent<Box>().Grab(gameObject);
             grabbedBox = closestCollider.gameObject;
+            sprite.sprite = sprites[1];
         }
     }
     public void OpenArm()
     {
         if(grabbedBox is null) return;
-
+        
+        sprite.sprite = sprites[0];
         grabbedBox.GetComponent<Box>().Drop();
         grabbedBox = null;
     }
