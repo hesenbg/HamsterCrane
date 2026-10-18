@@ -1,8 +1,13 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum BoxColor { Brown,Violet }
+
 public class Box : MonoBehaviour
 {
+
+    public BoxColor color;
+
     private void FixedUpdate()
     {
         
