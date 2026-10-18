@@ -22,6 +22,10 @@ public class StraightTower : MonoBehaviour
     private void FixedUpdate()
     {
         IsFinished = Find();
+        if (IsFinished)
+        {
+            Debug.Log("ish");
+        }
     }
 
     private bool Find()

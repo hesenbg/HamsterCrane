@@ -84,7 +84,7 @@ public class player : MonoBehaviour
         if (1 << collision.gameObject.layer == GroundLayer.value)
         {
             if(!CanClimbLadder)
-                transform.position = new Vector3(transform.position.x, collision.transform.position.y+1, transform.position.z);
+                transform.position = new Vector3(transform.position.x, collision.transform.position.y+1, -4);
             OnGround = true;
         }
     }
@@ -112,7 +112,7 @@ public class player : MonoBehaviour
 
         if ((Input.GetKey(Up) || Input.GetKey(Down)) && CanClimbLadder)
         {
-            Vector2 pos = transform.position;
+            Vector3 pos = transform.position;
 
             pos.x = closestLadder.transform.position.x;
 
