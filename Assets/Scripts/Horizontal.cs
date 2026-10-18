@@ -5,7 +5,7 @@ public class Horizontal : BaseController
     public override void OnDown()
     {
         crane.MoveDown();
-
+        sprite.sprite = sprites[2];
     }
 
     public override void OnInteract()
@@ -27,6 +27,6 @@ public class Horizontal : BaseController
     public override void OnUp()
     {
         crane.MoveUp();
-
+        sprite.sprite = sprites[1];
     }
 }

@@ -32,6 +32,15 @@ public class player : MonoBehaviour
 
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] LayerMask Controller;
+    // 0 idle
+    // 1 action
+    // 2 ladder
+    // 3 right
+    // 4 left
+    [SerializeField] Sprite[] p1sprites;
+    [SerializeField] Sprite[] p2sprites;
+    [SerializeField] Sprite[] p3sprites;
+    private SpriteRenderer sprite;
 
     float baseGravity = 1;
 
@@ -49,6 +58,7 @@ public class player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -166,6 +176,7 @@ public class player : MonoBehaviour
                 Ladder();
                 break;
             case movementState.crane:
+                transform.position = (Vector2)Closest.transform.position + new Vector2(0, 0.2f);
                 Crane();
                 break;
         }
@@ -177,6 +188,7 @@ public class player : MonoBehaviour
 
 
             mindistance = float.MaxValue;
+            Closest = null;
 
             foreach(Collider2D col in all)
             {
@@ -184,7 +196,6 @@ public class player : MonoBehaviour
                 Debug.Log(col);
 
                 float distance =Vector2.Distance(col.transform.position, transform.position);
-
                 if (distance < mindistance && col.gameObject.TryGetComponent<BaseController>(out BaseController cont))
                 {
                     mindistance = distance;
@@ -214,5 +225,32 @@ public class player : MonoBehaviour
 
         }
         rb.linearVelocity = Dir;
+        SetSprite();
+    }
+    private void SetSprite()
+    {
+        if(state == movementState.crane)
+        {
+            sprite.sprite = p1sprites[1];
+        }
+        else if(state == movementState.idle)
+        {
+            if (Input.GetKey(Left) )
+            {
+                sprite.sprite = p1sprites[4];
+            }
+            else if (Input.GetKey(Right))
+            {
+                sprite.sprite = p1sprites[3];
+            }
+            else
+            {
+                sprite.sprite = p1sprites[0];
+            }
+        }
+        else
+        {
+            sprite.sprite = p1sprites[2];
+        }
     }
 }
