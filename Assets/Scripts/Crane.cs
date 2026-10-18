@@ -20,7 +20,7 @@ public class Crane : MonoBehaviour
     {
         if (grabbedBox)
         {
-            grabbedBox.transform.position = (Vector2)transform.position + new Vector2(0, -0.25f);;
+            grabbedBox.transform.position = (Vector2)transform.position + new Vector2(0, -0.65f);;
         }
     }
     public void MoveUp()
@@ -49,7 +49,7 @@ public class Crane : MonoBehaviour
     }
     public void CloseArm()
     {
-        Vector2 pivotpoint = (Vector2)transform.position + new Vector2(0, -0.25f);
+        Vector2 pivotpoint = (Vector2)transform.position + new Vector2(0, -0.65f);
         var colliders = Physics2D.OverlapCircleAll(pivotpoint, 0.25f, 256);
         Collider2D closestCollider = null;
         float closestDistance = 1;

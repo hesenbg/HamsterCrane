@@ -10,6 +10,10 @@ public class Open : BaseController
     public override void OnInteract()
     {
         crane.CloseArm();
+        if(sprite.sprite = sprites[1])
+            sprite.sprite = sprites[2];
+        else
+            sprite.sprite = sprites[1];
     }
 
     public override void OnLeft()

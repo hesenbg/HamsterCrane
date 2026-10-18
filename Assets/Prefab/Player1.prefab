@@ -86,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 353064994935650894, guid: 40913a8b6dea01940b2e1172ccb85db2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,14 +115,35 @@ MonoBehaviour:
   Interact: 101
   rb: {fileID: 4431128865581996581}
   Dir: {x: 0, y: 0}
-  LadderSpeed: 1
-  HorizontalSpeed: 1
+  LadderSpeed: 3
+  HorizontalSpeed: 5
   LadderLayer:
     serializedVersion: 2
     m_Bits: 8
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  Controller:
+    serializedVersion: 2
+    m_Bits: 0
+  p1sprites:
+  - {fileID: 353064994935650894, guid: 40913a8b6dea01940b2e1172ccb85db2, type: 3}
+  - {fileID: -6906572935875604362, guid: 9dc74ea3383821e4095f0232f5e1960c, type: 3}
+  - {fileID: -8824073170915063860, guid: 5a09bda2159d1de45b0cca1afa4e5229, type: 3}
+  - {fileID: -1662722647521136888, guid: ad79628f859e9354198fafccb29aed1f, type: 3}
+  - {fileID: -8410243203585252352, guid: 5639092331efffd46993b34d895d4f4b, type: 3}
+  p2sprites:
+  - {fileID: -5562950339188409030, guid: 4e9cd9939a80e3842bb266a127b5ff54, type: 3}
+  - {fileID: -8814318487807370310, guid: 0d35d308a6eea444d884a2713fd5cc88, type: 3}
+  - {fileID: -8045046586481326350, guid: ae8e2cb04d4a6b04399e2b58231fe2b0, type: 3}
+  - {fileID: -924446807354744470, guid: d41416ea3cf567d46b26e3e5ac14e01c, type: 3}
+  - {fileID: -3715057191389690303, guid: 211e8e7c86022c342b2f112734609db8, type: 3}
+  p3sprites:
+  - {fileID: -1582849940728976696, guid: 08acab52798735244b546927df05bedf, type: 3}
+  - {fileID: 6788636654368613328, guid: 2671e1c0635040446947e4e86176c793, type: 3}
+  - {fileID: 8902224070623436065, guid: a58e60b43c1145a46bb37be16902b70b, type: 3}
+  - {fileID: 6862933103162842442, guid: 0c163dbb074258a46ae00b91c7b8c287, type: 3}
+  - {fileID: 883558145743401174, guid: 4d554f9f6e3017c4cb9614cb0bc4b1f9, type: 3}
   OnGround: 0
   state: 0
   CanClimbLadder: 0
@@ -188,17 +209,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.06006241}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.77, y: 1.19}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 1}
+  m_Size: {x: 0.9, y: 1.1201248}
   m_EdgeRadius: 0
 --- !u!61 &1075948816984114677
 BoxCollider2D:
@@ -234,17 +255,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.61838794}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.77, y: 1.19}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.2}
+  m_Size: {x: 0.9, y: 0.0001}
   m_EdgeRadius: 0
 --- !u!1 &7011099852501503473
 GameObject:
